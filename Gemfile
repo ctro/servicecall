@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'sinatra', '~> 1.4.5'
+gem 'sinatra-contrib', '~> 1.4.2'
+gem 'thin', '~> 1.6.3'
+gem 'whenever', '~> 0.9.4'
+gem 'pony', '~> 1.11'
+
+#development
+gem 'foreman', '~> 0.75.0'
