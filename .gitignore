@@ -1,3 +1,2 @@
-Procfile
 .env
-dev.sh
+Guardfile

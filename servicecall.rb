@@ -1,15 +1,19 @@
 require 'sinatra'
 require "sinatra/reloader" if development?
 
-configure :development do
-  set :dump_errors, true
+# Load keys from ENV
+def api_keys
+  @api_keys ||= ENV["API_KEYS"].split(",") rescue []
 end
 
-@@keys = ENV["API_KEYS"].split(",")
+# Index
+get '/' do "Litespeed ServiceCall" end
 
-get '/subs' do
-  logger.info(@@keys)
-  "#{@@keys.length}"
-end
-
+# Monitor:
 get '/ping' do "PONG" end
+
+get '/info' do
+  <<-info
+  Key Length: #{api_keys.length}
+  info
+end

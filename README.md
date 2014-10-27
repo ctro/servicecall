@@ -10,7 +10,19 @@ Run in dev:
 -----------
 ```rb
 bundle install
-bundle exec foreman start web
+foreman start
+```
+
+Run tasks:
+----------
+```rb
+foreman run rake mail:service_reminder
+```
+
+Run tests:
+----------
+```rb
+foreman run ruby test.rb
 ```
 
 Logs:
@@ -21,9 +33,11 @@ Or
 heroku addons:open papertrail
 ```
 
-Monitoring:
+Monitor:
 -----------
-https://uptimerobot.com
+- https://uptimerobot.com
+- http://servicecall.royowl.net/ping
+- http://servicecall.royowl.net/info
 
 Deployment:
 -----------
