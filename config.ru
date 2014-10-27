@@ -1,0 +1,2 @@
+require './servicecall'
+run MyApp

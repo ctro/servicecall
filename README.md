@@ -10,3 +10,14 @@ Run in dev:
 bundle install
 bundle exec foreman start web
 ```
+
+Deployment:
+-----------
+Prereqs:
+- `servicecall`, `servicecall.pub` keys.
+
+```sh
+ssh-add ~/.ssh/servicecall
+heroku account set servicecall
+git push heroku master
+```
