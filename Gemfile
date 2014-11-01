@@ -8,7 +8,6 @@ gem 'rake', '~> 10.3.2'
 gem 'whenever', '~> 0.9.4'
 gem 'pony', '~> 1.11'
 gem 'foreman', '~> 0.75.0'
-
-group :test do
-  gem 'minitest', '~> 5.4.2'
-end
+gem 'minitest', '~> 5.4.2'
+gem 'racksh', '~> 1.0.0'
+gem 'byebug', '~> 3.5.1'

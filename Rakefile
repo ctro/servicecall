@@ -6,6 +6,7 @@ namespace :mail do
   task :service_reminder do
     ENV["API_KEYS"].split(",").each do |key|
 
+      # TODO: put this somewhere better
       if ENV["RACK_ENV"] == "production"
         Pony.options = {
           :via => :smtp,

@@ -8,20 +8,33 @@ http://servicecall.royowl.net
 
 Run in dev:
 -----------
-```rb
+```sh
 bundle install
 foreman start
 ```
 
-Run tasks:
+Console:
+--------
+```sh
+foreman run shell
+```
+
+Debugging:
 ----------
 ```rb
+require 'byebug'
+byebug
+```
+
+Run tasks:
+----------
+```sh
 foreman run rake mail:service_reminder
 ```
 
 Run tests:
 ----------
-```rb
+```sh
 foreman run ruby test.rb
 ```
 

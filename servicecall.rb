@@ -1,5 +1,6 @@
 require 'sinatra'
-require "sinatra/reloader" if development?
+require 'sinatra/reloader' if development?
+require './ls_api'
 
 # Load keys from ENV
 def api_keys
