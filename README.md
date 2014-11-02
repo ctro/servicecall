@@ -59,6 +59,8 @@ Prereqs:
 
 ```sh
 ssh-add ~/.ssh/servicecall
-heroku account set servicecall
+heroku login
+heroku keys:add
+heroku git:remote add --app lightspeed-servicecall
 git push heroku master
 ```
