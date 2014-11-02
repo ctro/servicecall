@@ -19,7 +19,7 @@ class ServicecallTest < MiniTest::Unit::TestCase
   def test_info
     get '/info'
     assert last_response.ok?
-    assert_match /Key Length: 2/, last_response.body
+    assert_match /Key Length: /, last_response.body
   end
 
 
