@@ -58,6 +58,7 @@ Prereqs:
 - `servicecall`, `servicecall.pub` keys.
 
 ```sh
+ssh-add -D
 ssh-add ~/.ssh/servicecall
 heroku login
 heroku keys:add
