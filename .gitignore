@@ -1,3 +1,4 @@
 .env
 Guardfile
 scratch
+.DS_Store
