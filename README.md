@@ -28,8 +28,13 @@ byebug
 
 Run tasks:
 ----------
+dev
 ```sh
-foreman run rake mail:service_reminder
+foreman run rake mail:service_reminder[3]
+```
+prod
+```sh
+foreman run rake mail:service_reminder[3]
 ```
 
 Run tests:

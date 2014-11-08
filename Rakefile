@@ -8,7 +8,6 @@ namespace :mail do
   desc "Mail Service Reminders"
   task :service_reminder, [:days_out] do |t, args|
 
-
     if ENV['RACK_ENV'] == "production"
       require "./config/production.rb"
     end

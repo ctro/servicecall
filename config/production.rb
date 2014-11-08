@@ -1,4 +1,4 @@
-Log.green "Loading #{settings.environment} environment"
+#Log.green "Loading #{settings.environment} environment"
 
 # Heroku/Sendgrid settings
 Pony.options = {
