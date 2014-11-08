@@ -1,20 +1,13 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
-require './ls_api'
+require './lib/ls_api'
+require './lib/logger'
 
-# Load keys from ENV
-def api_keys
-  @api_keys ||= ENV["API_KEYS"].split(",") rescue []
-end
+
+require "./config/#{settings.environment}.rb"
 
 # Index
 get '/' do "Litespeed ServiceCall" end
 
 # Monitor:
 get '/ping' do "PONG" end
-
-get '/info' do
-  <<-info
-  Key Length: #{api_keys.length}
-  info
-end
