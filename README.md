@@ -34,7 +34,7 @@ foreman run rake mail:service_reminder[3]
 ```
 prod
 ```sh
-foreman run rake mail:service_reminder[3]
+heroku run rake mail:service_reminder[3]
 ```
 
 Run tests:
