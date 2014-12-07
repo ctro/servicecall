@@ -2,16 +2,12 @@
 require 'pony'
 require_relative './lib/ls_api'
 require_relative './lib/logger'
+require_relative "./config/#{ENV['RACK_ENV']}"
 
 namespace :mail do
 
   desc "Mail Service Reminders"
   task :service_reminder, [:days_out] do |t, args|
-
-    if ENV['RACK_ENV'] == "production"
-      require "./config/production.rb"
-    end
-
     # Right now defaults to HUB
     l = LsAPI.new
     alerts = l.work_alerts_for_upcoming_days(args[:days_out].to_i)

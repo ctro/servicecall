@@ -30,7 +30,7 @@ Run tasks:
 ----------
 dev
 ```sh
-foreman run rake mail:service_reminder[3]
+RACK_ENV=development foreman run rake mail:service_reminder[3]
 ```
 prod
 ```sh
