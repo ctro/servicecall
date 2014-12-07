@@ -1,4 +1,2 @@
-# Don't buffer in test
+# Realtime logging
 $stdout.sync = true
-
-Log.green "Loading #{settings.environment} environment"

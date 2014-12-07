@@ -1,4 +1,5 @@
-#Log.green "Loading #{settings.environment} environment"
+# Realtime logging
+$stdout.sync = true
 
 # Heroku/Sendgrid settings
 Pony.options = {

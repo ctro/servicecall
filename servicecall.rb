@@ -13,6 +13,11 @@ get '/' do "Litespeed ServiceCall" end
 # Monitor:
 get '/ping' do "PONG" end
 
+get '/logit' do
+  Log.green("Green text")
+  "OK"
+end
+
 
 get '/reminder' do
   email = params[:email]
