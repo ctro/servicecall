@@ -40,7 +40,7 @@ heroku run rake mail:service_reminder[3]
 Run tests:
 ----------
 ```sh
-foreman run ruby test.rb
+foreman run ruby test/*.rb
 ```
 
 Logs:

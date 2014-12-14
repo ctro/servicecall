@@ -3,6 +3,8 @@ class LsAPI
   require 'json'
   require 'time'
 
+  attr_accessor :key, :account_id, :account_name, :work_alerts
+
   WorkAlert = Struct.new(:name, :email, :phone, :time_in) do
     def to_s
       "WorkAlert: name:#{name} email:#{email} phone:#{phone} time_in:#{time_in}"
@@ -14,12 +16,13 @@ class LsAPI
     account = get('.json')["Account"]
     @account_id = account["accountID"]
     @account_name = account["name"]
+    @work_alerts = []
     Log.blue "API init for #{@account_name}"
   end
 
   def work_alerts_for_upcoming_days(n_days)
     today = Time.now.utc
-    the_future = (Time.now.utc + (n_days*24*60*60))
+    the_future = (Time.now.utc + Time.days(n_days))
 
     Log.blue "Loading Workorders from #{today} to #{the_future}"
 
@@ -28,28 +31,25 @@ class LsAPI
 
       cust = get("Customer/#{wo["customerID"]}.json?load_relations=all")["Customer"]
       fname = cust['firstName']
-      email = cust['Contact']['Emails']['ContactEmail']['address']
-      phone = cust['Contact']['Phones']['ContactPhone']['number']
+      email = cust['Contact']['Emails']['ContactEmail']['address'] rescue "N/A"
+      phone = cust['Contact']['Phones']['ContactPhone']['number'] rescue "N/A"
 
       alert = WorkAlert.new(fname, email, phone, wo['timeIn'])
       Log.blue("Found #{alert}")
-      return alert
+
+       @work_alerts << alert
     end
+
   end
 
   private
 
   def get(path)
-    Log.blue "GET #{path}"
-    http = Net::HTTP.new("api.merchantos.com", 443)
-    http.use_ssl = true
+    url = "https://#{@key}:apikey@api.merchantos.com/API/Account/#{@account_id}/#{path}"
+    Log.blue "GET #{url}"
+    response = HTTParty.get(url)
 
-    response = http.start do |http|
-      request = Net::HTTP::Get.new("/API/Account/#{@account_id}/#{path}")
-      request.basic_auth(@key, 'apikey')
-      http.request(request)
-    end
-
+    Log.green response.body
     JSON.parse(response.body)
   end
 

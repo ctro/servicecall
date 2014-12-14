@@ -1,0 +1,14 @@
+{
+  "@attributes": {
+    "count": "1"
+  },
+  "Account": {
+    "accountID": "22422",
+    "name": "The Test Bicycle Service",
+    "link": {
+      "@attributes": {
+        "href": "/API/Account/22422"
+      }
+    }
+  }
+}

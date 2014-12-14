@@ -1,2 +1,1 @@
-# Realtime logging
-$stdout.sync = true
+LOG=false

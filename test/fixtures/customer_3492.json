@@ -1,0 +1,46 @@
+{
+  "@attributes": {
+    "count": "1"
+  },
+  "Customer": {
+    "customerID": "3492",
+    "firstName": "Nick",
+    "lastName": "Brennan",
+    "archived": "false",
+    "title": "",
+    "company": "",
+    "createTime": "2013-12-18T18:37:37+00:00",
+    "timeStamp": "2013-12-18T17:37:37+00:00",
+    "creditAccountID": "0",
+    "customerTypeID": "1",
+    "discountID": "0",
+    "taxCategoryID": "0",
+    "Contact": {
+      "custom": "",
+      "noEmail": "false",
+      "noPhone": "false",
+      "noMail": "false",
+      "timeStamp": "2013-12-18T17:37:37+00:00",
+      "Addresses": "",
+      "Phones": {
+        "ContactPhone": {
+          "number": "410 925 0748",
+          "useType": "Mobile"
+        }
+      },
+      "Emails": "",
+      "Websites": ""
+    },
+    "CustomerType": {
+      "customerTypeID": "1",
+      "name": "Word of Mouth / Friend",
+      "taxCategoryID": "0",
+      "discountID": "0"
+    },
+    "Note": {
+      "note": "",
+      "isPublic": "false",
+      "timeStamp": "2013-12-18T17:37:37+00:00"
+    }
+  }
+}

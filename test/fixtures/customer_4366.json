@@ -1,0 +1,66 @@
+{
+  "@attributes": {
+    "count": "1"
+  },
+  "Customer": {
+    "customerID": "4366",
+    "firstName": "Brandon ",
+    "lastName": "Jones ",
+    "archived": "false",
+    "title": "",
+    "company": "",
+    "createTime": "2014-07-01T22:40:09+00:00",
+    "timeStamp": "2014-08-18T21:00:45+00:00",
+    "creditAccountID": "864",
+    "customerTypeID": "10",
+    "discountID": "0",
+    "taxCategoryID": "0",
+    "Contact": {
+      "custom": "",
+      "noEmail": "false",
+      "noPhone": "false",
+      "noMail": "false",
+      "timeStamp": "2014-08-18T21:00:45+00:00",
+      "Addresses": {
+        "ContactAddress": {
+          "address1": "46 white street",
+          "address2": "apt #1",
+          "city": "new york",
+          "state": "NY",
+          "zip": "10013",
+          "country": "usa"
+        }
+      },
+      "Phones": {
+        "ContactPhone": {
+          "number": "917 671 8060",
+          "useType": "Mobile"
+        }
+      },
+      "Emails": {
+        "ContactEmail": {
+          "address": "brandon.l.jones@gmail.com",
+          "useType": "Primary"
+        }
+      },
+      "Websites": ""
+    },
+    "CreditAccount": {
+      "creditAccountID": "864",
+      "creditLimit": "0",
+      "timeStamp": "2014-07-13T15:52:55+00:00",
+      "balance": "0"
+    },
+    "CustomerType": {
+      "customerTypeID": "10",
+      "name": "Location",
+      "taxCategoryID": "0",
+      "discountID": "0"
+    },
+    "Note": {
+      "note": "",
+      "isPublic": "false",
+      "timeStamp": "2014-08-18T20:58:20+00:00"
+    }
+  }
+}

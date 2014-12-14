@@ -1,8 +1,10 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pony'
+require 'httparty'
 require './lib/ls_api'
 require './lib/logger'
+require './lib/time'
 
 
 require "./config/#{settings.environment}.rb"
@@ -12,12 +14,6 @@ get '/' do "Litespeed ServiceCall" end
 
 # Monitor:
 get '/ping' do "PONG" end
-
-get '/logit' do
-  Log.green("Green text")
-  "OK"
-end
-
 
 get '/reminder' do
   email = params[:email]

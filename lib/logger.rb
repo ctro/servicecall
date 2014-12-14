@@ -2,7 +2,7 @@ module Log
   require 'colorize'
 
   def self.write(msg, color=nil)
-    puts msg.colorize(color)
+    puts msg.colorize(color) if LOG
   end
 
   def self.green(msg)
