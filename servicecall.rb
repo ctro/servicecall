@@ -22,9 +22,6 @@ get '/reminder' do
   alerts = l.work_alerts_for_upcoming_days(days_out.to_i)
   body = alerts.map{ |a| "#{a}\n\n" }
 
-  require 'byebug'
-  byebug
-
   Log.green("Sending alerts...")
 
   message = Pony.mail(:to => email, :from => email,
