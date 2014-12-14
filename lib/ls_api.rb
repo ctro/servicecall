@@ -7,7 +7,11 @@ class LsAPI
 
   WorkAlert = Struct.new(:name, :email, :phone, :time_in) do
     def to_s
-      "WorkAlert: name:#{name} email:#{email} phone:#{phone} time_in:#{time_in}"
+      "WorkAlert: name:#{name} email:#{email} phone:#{phone} time_in:#{localtime}"
+    end
+
+    def localtime
+      Time.parse(time_in).localtime.strftime("%m/%d/%Y at %I:%M%p")
     end
   end
 
@@ -37,9 +41,10 @@ class LsAPI
       alert = WorkAlert.new(fname, email, phone, wo['timeIn'])
       Log.blue("Found #{alert}")
 
-       @work_alerts << alert
+      @work_alerts << alert
     end
 
+    return @work_alerts
   end
 
   private

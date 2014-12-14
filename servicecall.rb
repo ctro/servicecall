@@ -6,7 +6,6 @@ require './lib/ls_api'
 require './lib/logger'
 require './lib/time'
 
-
 require "./config/#{settings.environment}.rb"
 
 # Index
@@ -21,12 +20,16 @@ get '/reminder' do
 
   l = LsAPI.new
   alerts = l.work_alerts_for_upcoming_days(days_out.to_i)
+  body = alerts.map{ |a| "#{a}\n\n" }
+
+  require 'byebug'
+  byebug
 
   Log.green("Sending alerts...")
 
   message = Pony.mail(:to => email, :from => email,
   :subject => "I think these people are coming in the next #{days_out} days",
-  :body => alerts)
+  :body => body)
 
   Log.green(message.to_s)
   "OK"

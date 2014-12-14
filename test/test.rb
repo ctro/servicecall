@@ -43,8 +43,9 @@ class ServicecallTest < MiniTest::Test
   end
 
 
-
+  #############
   ### TESTS ###
+  #############
 
   def test_work_alert_struct
     name = 'Clint Troxel'
@@ -84,6 +85,13 @@ class ServicecallTest < MiniTest::Test
       work_alerts = lsapi.work_alerts_for_upcoming_days(10)
 
       assert_equal 4, work_alerts.size
+      work_alerts.each{ |wa| assert wa.is_a?(LsAPI::WorkAlert)}
+
+      wa = work_alerts.first
+      assert_equal 'Elena', wa.name
+      assert_equal 'ealarcon55@yahoo.com', wa.email
+      assert_equal 'N/A', wa.phone
+      assert Time.parse(wa.time_in)
     end
   end
 
