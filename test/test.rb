@@ -67,6 +67,12 @@ class ServicecallTest < MiniTest::Test
     assert_equal "PONG", last_response.body
   end
 
+  def test_index
+    get '/'
+    assert last_response.ok?
+    assert_match /Hello, world!/, last_response.body
+  end
+
   def test_ls_api_client
     Timecop.freeze(Time.now) do
 

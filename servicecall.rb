@@ -8,10 +8,8 @@ require './lib/time'
 
 require "./config/#{settings.environment}.rb"
 
-# Index
-get '/' do "Litespeed ServiceCall" end
 
-# Monitor:
+get '/' do erb(:index) end
 get '/ping' do "PONG" end
 
 get '/reminder' do
