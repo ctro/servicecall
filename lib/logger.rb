@@ -11,4 +11,7 @@ module Log
   def self.blue(msg)
     self.write(msg, :blue)
   end
+  def self.red(msg)
+    self.write(msg, :red)
+  end
 end

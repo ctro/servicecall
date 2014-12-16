@@ -28,12 +28,12 @@ class ServicecallTest < MiniTest::Test
       fixture('account'))
   end
 
-  def mock_workorders
+  def mock_workorders(name)
     tin = Time.now.utc.iso8601
     tout = (Time.now.utc + Time.days(10)).iso8601
     mock_request(
       "https://test-api-key:apikey@api.merchantos.com/API/Account/22422/Workorder.json?timeIn=%3E%3C,#{tin},#{tout}",
-      fixture('workorders'))
+      fixture(name))
   end
 
   def mock_customer(id)
@@ -70,14 +70,14 @@ class ServicecallTest < MiniTest::Test
   def test_index
     get '/'
     assert last_response.ok?
-    assert_match /Hello, world!/, last_response.body
+    assert_match /Lightspeed Servicecall/, last_response.body
   end
 
   def test_ls_api_client
     Timecop.freeze(Time.now) do
 
       mock_account
-      mock_workorders
+      mock_workorders('workorders')
       mock_customer(3492)
       mock_customer(4366)
       mock_customer(5032)
@@ -98,6 +98,17 @@ class ServicecallTest < MiniTest::Test
       assert_equal 'ealarcon55@yahoo.com', wa.email
       assert_equal 'N/A', wa.phone
       assert Time.parse(wa.time_in)
+    end
+  end
+
+  def test_no_workorders
+    Timecop.freeze(Time.now) do
+      mock_account()
+      mock_workorders('no_workorders')
+
+      lsapi = LsAPI.new('test-api-key')
+      work_alerts = lsapi.work_alerts_for_upcoming_days(10)
+      assert_equal 0, work_alerts.size
     end
   end
 

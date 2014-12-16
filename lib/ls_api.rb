@@ -31,18 +31,28 @@ class LsAPI
     Log.blue "Loading Workorders from #{today} to #{the_future}"
 
     # %3E%3C = <>
-    get("Workorder.json?timeIn=%3E%3C,#{today.iso8601},#{the_future.iso8601}")["Workorder"].map do |wo|
+    url = "Workorder.json?timeIn=%3E%3C,#{today.iso8601},#{the_future.iso8601}"
 
-      cust = get("Customer/#{wo["customerID"]}.json?load_relations=all")["Customer"]
-      fname = cust['firstName']
-      email = cust['Contact']['Emails']['ContactEmail']['address'] rescue "N/A"
-      phone = cust['Contact']['Phones']['ContactPhone']['number'] rescue "N/A"
+    begin
+      @response = get(url)
+      @response.fetch("Workorder").each do |wo|
 
-      alert = WorkAlert.new(fname, email, phone, wo['timeIn'])
-      Log.blue("Found #{alert}")
+        cust = get("Customer/#{wo["customerID"]}.json?load_relations=all")["Customer"]
+        fname = cust['firstName']
+        email = cust['Contact']['Emails']['ContactEmail']['address'] rescue "N/A"
+        phone = cust['Contact']['Phones']['ContactPhone']['number'] rescue "N/A"
 
-      @work_alerts << alert
+        alert = WorkAlert.new(fname, email, phone, wo['timeIn'])
+        Log.blue("Found #{alert}")
+
+        @work_alerts << alert
+      end
+    rescue KeyError => e
+      Log.red "No workorders found..."
+      Log.red "Rescued: #{e.to_s}"
+      Log.red "From: #{@response.to_s}"
     end
+
 
     return @work_alerts
   end
