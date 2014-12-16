@@ -1,0 +1,7 @@
+.bike_content{
+  background-image: url('/images/bike.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right top;
+  background-size: 320px;
+}
