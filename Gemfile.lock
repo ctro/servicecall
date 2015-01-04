@@ -1,6 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (4.2.0)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
     addressable (2.3.6)
     backports (3.6.3)
     byebug (3.5.1)
@@ -8,6 +14,9 @@ GEM
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
     chronic (0.10.2)
+    clockwork (1.1.0)
+      activesupport
+      tzinfo
     colorize (0.7.3)
     columnize (0.8.9)
     crack (0.4.2)
@@ -24,6 +33,7 @@ GEM
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
+    i18n (0.7.0)
     json (1.8.1)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
@@ -60,8 +70,11 @@ GEM
       eventmachine (~> 1.0)
       rack (~> 1.0)
     thor (0.19.1)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     timecop (0.7.1)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
     webmock (1.20.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -73,6 +86,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug (~> 3.5.1)
+  clockwork (~> 1.1.0)
   colorize (~> 0.7.3)
   foreman (~> 0.75.0)
   httparty (~> 0.13.3)
