@@ -57,6 +57,12 @@ Monitor:
 - http://servicecall.royowl.net/ping
 - http://servicecall.royowl.net/info
 
+Clock:
+------
+No Cron here, recurring tasks via Heroku "Custom clock process".
+TODO: Should this be part of a deploy script?
+`heroku ps:scale clock=1`
+
 Deployment:
 -----------
 Prereqs:
