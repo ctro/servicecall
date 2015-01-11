@@ -1,4 +1,6 @@
 require 'clockwork'
+require_relative 'ls_api'
+
 module Clockwork
 
   handler do |job|
