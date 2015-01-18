@@ -98,6 +98,10 @@ class ServicecallTest < MiniTest::Test
       assert_equal 'ealarcon55@yahoo.com', wa.email
       assert_equal 'N/A', wa.phone
       assert Time.parse(wa.time_in)
+
+      # Test temporary clockwork
+      lsapi.clockwork
+
     end
   end
 

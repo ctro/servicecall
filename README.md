@@ -43,6 +43,12 @@ Run tests:
 foreman run ruby test/*.rb
 ```
 
+Rerun tests:
+```sh
+foreman run test
+#foreman run rerun ruby test/*.rb
+```
+
 Logs:
 ----------------
 [Papertrail](https://papertrailapp.com/systems/lightspeed-servicecall/events)

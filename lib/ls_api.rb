@@ -2,6 +2,7 @@ class LsAPI
   require 'net/https'
   require 'json'
   require 'time'
+  require 'logger'
 
   attr_accessor :key, :account_id, :account_name, :work_alerts
 
@@ -22,6 +23,20 @@ class LsAPI
     @account_name = account["name"]
     @work_alerts = []
     Log.blue "API init for #{@account_name}"
+  end
+
+  def clockwork(days_out=10)
+    alerts = work_alerts_for_upcoming_days(days_out.to_i)
+    body = alerts.map{ |a| "#{a}\n\n" }
+
+    Log.green("Sending alerts...")
+
+    message = Pony.mail(:to => "clint@ctro.net", :from => "clint@ctro.net",
+    :subject => "I think these people are coming in the next #{days_out} days",
+    :body => body)
+
+    Log.green(message.to_s)
+    "OK"
   end
 
   def work_alerts_for_upcoming_days(n_days)
