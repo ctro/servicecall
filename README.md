@@ -37,16 +37,9 @@ prod
 heroku run rake mail:service_reminder[3]
 ```
 
-Run tests:
-----------
-```sh
-foreman run ruby test/*.rb
-```
-
 Rerun tests:
 ```sh
 foreman run test
-#foreman run rerun ruby test/*.rb
 ```
 
 Logs:
