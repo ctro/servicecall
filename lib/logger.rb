@@ -1,8 +1,8 @@
-module Log
-  require 'colorize'
+require 'colorize'
 
+module Log
   def self.write(msg, color=nil)
-    puts msg.colorize(color) if LOG
+    puts msg.colorize(color) if defined?(LOG) && LOG
   end
 
   def self.green(msg)

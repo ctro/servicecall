@@ -1,9 +1,10 @@
-class LsAPI
-  require 'net/https'
-  require 'json'
-  require 'time'
-  require 'logger'
+require 'net/https'
+require 'json'
+require 'time'
+require 'logger'
+require 'httparty'
 
+class LsAPI
   attr_accessor :key, :account_id, :account_name, :work_alerts
 
   WorkAlert = Struct.new(:name, :email, :phone, :time_in) do

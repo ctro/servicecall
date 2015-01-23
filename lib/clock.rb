@@ -8,7 +8,7 @@ module Clockwork
     Log.blue("Clockwork: running #{job}")
   end
 
-  every(1.minute, 'Sending Reminders', :at => '12:00') {
+  every(1.day, 'Sending Reminders', :at => '12:00') {
     l = LsAPI.new
     l.clockwork
   }
